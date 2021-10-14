@@ -4,7 +4,7 @@
 
 int ask_user_for_integer ( std :: string prompt )
 {
-	std :: cout << prompt << " int :";
+	std :: cout << prompt;
 	auto n = std :: string {};
 	std :: getline ( std :: cin , n);
 	return std :: stoi (n);
@@ -26,8 +26,22 @@ int main ()
 	auto const a = ask_user_for_integer ("a = ");
 	auto const b = ask_user_for_integer ("b = ");
 
-	std :: cout << compare(a,b) << '\n';
-
+	switch(compare(a,b)) {
+		case 1:
+			std :: cout << a << "\n";
+			break;
+		case 0:
+			std :: cout << "Both numbers are equal (" << a << ")\n";
+			break;
+		case -1:
+			std :: cout << b << "\n";
+			break;
+		case -2:
+			std :: cout << "Error while comparison.\n";
+			break;
+		default:
+			std :: cout << "Error while comparison.\n";
+	}
 
 	return 0;
 }
