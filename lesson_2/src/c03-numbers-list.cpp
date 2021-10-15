@@ -17,11 +17,6 @@ int compare( int first, int second) {
 	return 0;
 }
 
-bool is_devidable_by(int a, int c) {
-	if(c == 0) return false;
-	return a % c == 0;
-}
-
 void swap(int a, int b) {
 	int buff = a;
 	a = b;
@@ -31,7 +26,7 @@ void swap(int a, int b) {
 int main () {
 	auto a = ask_user_for_integer ("a = ");
 	auto b = ask_user_for_integer ("b = ");
-	auto c = ask_user_for_integer ("c = ");
+	auto s = ask_user_for_integer ("s = ");
 	auto buff = 0;
 
 	if(compare(a, b) == 1) {
@@ -40,8 +35,14 @@ int main () {
 		b = buff;
 	}
 
-	for(int i = a; i < b; i++) {
-		if(is_devidable_by(i, c)) {
+	
+	if(s == 0) return 0;
+	if(s >= 0) {
+		for(int i = a; i < b; i+=s) {
+			std::cout << i << " ";
+		}
+	} else {
+		for(int i = b; i >= a; i+=s) {
 			std::cout << i << " ";
 		}
 	}
